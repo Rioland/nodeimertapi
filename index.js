@@ -1,4 +1,5 @@
 // package
+const DATA=require("./ocnfig");
 const express = require("express");
 const mysql = require("mysql");
 const cors = require("cors");
@@ -7,11 +8,11 @@ const Joi = require("joi");
 const app = express();
 // sql
 const db = mysql.createPool({
-  host: "localhost",
-  user: "root",
-  password: "",
-  port:"3306",
-  database: "imerket",
+  host: DATA.HOST,
+  user: DATA.USER,
+  password: DATA.PASSWORD,
+  port:DATA.PORT,
+  database:DATA.DB,
 });
 // meddleware
 app.use(bodyparser.urlencoded({ extended: true }));
