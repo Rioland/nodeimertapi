@@ -103,6 +103,6 @@ app.post("/api/register", (req, resp) => {
   resp.send(param);
 });
 
-app.listen(port,"https://api-imarket.herokuapp.com/api", () => {
+app.listen(port, () => {
   console.log(`working on port ${port}`);
 });
