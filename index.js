@@ -7,7 +7,7 @@ const cors = require("cors");
 const bodyparser = require("body-parser");
 const Joi = require("joi");
 const app = express();
-const port = process.env.PORT || 3000;
+
 // sql
 const db = mysql.createPool({
   host: DATA.HOST,
@@ -21,7 +21,7 @@ app.use(bodyparser.urlencoded({ extended: true }));
 app.use(express.json());
 app.use(cors());
 
-
+const port = process.env.PORT || 3000;
 
 app.get("/", (req, res) => {
   res.send("hello world");
@@ -68,7 +68,7 @@ app.post("/api/login", (req, res) => {
      }
     
   });
-  // res.send(req.body);
+
 });
 
 // update pin
@@ -104,8 +104,8 @@ app.post("/api/register", (req, resp) => {
 
   resp.send(param);
 });
-const server = http.createServer(app);
 
-server.listen(port, () => {
+
+app.listen(port, () => {
   console.log(`working on port ${port}`);
 });

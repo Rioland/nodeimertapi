@@ -1,13 +1,24 @@
 const mysql = require("mysql");
 
-const db = mysql.createPool({
-  host: "localhost",
-  user: "id16408694_rio",
-  password: "3dTIeD[q9my}+g$%",
-  database: "id16408694_riotech",
-});
 
 
+
+// module.exports = {
+//   HOST: "localhost",
+//   USER: "id16408694_rio",
+//   PASSWORD: "3dTIeD[q9my}+g$%",
+//   DB: "id16408694_riotech",
+//   PORT: "3306",
+// };
+
+
+// module.exports = {
+//   HOST: "sql5.freesqldatabase.com",
+//   USER: "sql5440458",
+//   PASSWORD: "x9MQpxLtRV",
+//   DB: "sql5440458",
+//   PORT: "3306",
+// };
 
 module.exports = {
   HOST: "localhost",
