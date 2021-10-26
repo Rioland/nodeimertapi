@@ -1,10 +1,10 @@
 // package
-const http=require("http");
-const DATA=require("./COnfig/ocnfig");
+// const http = require("http");
+const DATA = require("./COnfig/ocnfig");
 const express = require("express");
 const mysql = require("mysql");
-const cors = require("cors");
-const bodyparser = require("body-parser");
+// const cors = require("cors");
+// const bodyparser = require("body-parser");
 const Joi = require("joi");
 const app = express();
 
@@ -13,37 +13,39 @@ const db = mysql.createPool({
   host: DATA.HOST,
   user: DATA.USER,
   password: DATA.PASSWORD,
-  port:DATA.PORT,
-  database:DATA.DB,
+  port: DATA.PORT,
+  database: DATA.DB,
   // localAddress:
-  
 });
 
 // meddleware
-app.use(bodyparser.urlencoded({ extended: true }));
-app.use(express.json());
-app.use(cors());
+// app.use(bodyparser.urlencoded({ extended: true }));
+// app.use(express.json());
+// app.use(cors());
 
-const port = process.env.PORT || 58126;
 
-app.get("/", (req, res) => {
-  res.send("hello world");
-});
+
 // get all users
 app.get("/api/users", (req, res) => {
   db.getConnection((err, conn) => {
-    if (err) {
-      console.log(err);
-      return;
-    }
-    let query = "select * from users";
-    conn.query(query, (sqlerr, result) => {
-      if(sqlerr){
-       res.status(404).send(sqlerr);
-       return; 
+    db.connect((e, r) => {
+      if(e){
+        console.log
       }
-      res.send(result);
+       if (err) {
+         console.log(err);
+         return;
+       }
+       let query = "select * from users";
+       conn.query(query, (sqlerr, result) => {
+         if (sqlerr) {
+           res.status(404).send(sqlerr);
+           return;
+         }
+         res.send(result);
+       });
     });
+   
   });
 });
 // get single user
@@ -109,7 +111,3 @@ app.post("/api/register", (req, resp) => {
   resp.send(param);
 });
 
-
-app.listen(port, () => {
-  console.log(`working on port ${port}`);
-});

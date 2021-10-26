@@ -1,11 +1,11 @@
 {
   "name": "node-starter",
   "version": "1.0.0",
-  "main":"index.js",
-  "description":"",
+  "main": "index.js",
+  "description": "",
   "scripts": {
     "start": "node index.js",
-    "devStart":"nodemon index.js"
+    "devStart": "nodemon index.js"
   },
   "dependencies": {
     "body-parser": "^1.19.0",
